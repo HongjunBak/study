@@ -8,20 +8,54 @@
   - function Article(props) {
     return (
       <>
-        props.title
       </>
     );
   }
 */
 
 // import { useState } from 'react'
+
+import './App.css';
+
+function Header(props){
+  return(
+    <header>
+      <h1><a href='/'>{props.title}</a></h1>
+    </header>
+  );
+}
+
+function Nav() {
+  return(
+    <nav>
+      <ul>
+        <li><a href='read/1'>HTML5</a></li>
+        <li><a href='read/2'>CSS3</a></li>
+        <li><a href='read/3'>JAVSSCRIPT</a></li>
+      </ul>
+    </nav>
+  );
+}
+
+function Article() {
+  return(
+    <article>
+      <h3>Welcome</h3>
+      <p>Hello, React!</p>
+    </article>
+  );
+}
+
+
 import './App.css'
 
 function App() {
 
   return (
     <>
-      
+       <Header title="jQuery" />
+      <Nav />
+      <Article />
     </>
   )
 }
