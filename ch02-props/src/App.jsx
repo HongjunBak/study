@@ -21,6 +21,7 @@ function Header(props){
   return(
     <header>
       <h1><a href='/'>{props.title}</a></h1>
+      <p>{props.text}</p>
     </header>
   );
 }
@@ -53,7 +54,7 @@ function App() {
 
   return (
     <>
-       <Header title="jQuery" />
+       <Header title="jQuery" text="lulu" />
       <Nav />
       <Article />
     </>
