@@ -21,51 +21,45 @@ function Header(props) {
     </>
   );
 }
-function Nav() {
+function Nav(props) {
+  const menu = [];
+  for (let i=0; i<props.topics.length; i++) {
+    let topic = props.topics[i];
+    menu.push(
+    <li key={topic.id}><a id={topic.id} href={'/read/' + topic.id} onClick={(e)=>{
+      e.preventDefault();
+      props.onChangeId(e.target.id)
+    }}>{topic.title}</a></li>)
+  }
   return (
     <>
       <nav>
         <ul>
-          <li><a href='/read/1' onClick={(e)=>{
-            e.preventDefault();
-          }}>HTML5</a></li>
-          <li><a href='/read/2' onClick={(e)=>{
-            e.preventDefault();
-          }} >CSS3</a></li>
-          <li><a href='/read/3' onClick={(e)=>{
-            e.preventDefault();
-          }}>JavaScript</a></li>
+          {menu}
         </ul>
       </nav>
     </>
   )
 }
 
-function Article(props) {
-  return(
-    <>
-      <article>
-        <h3>{props.title}</h3>
-        <p>{props.body}</p>
-      </article>
-    </>
-  );
-}
 
 function App() {
-  // const [mode, setMode] = useState('WRITE');
-  // let content = null;
-  //   if (mode === 'READ') {
-  //   content = <p>입니다</p>
+  
+    
+
+  const topics = [
+    { id: 1, title: 'HTML5', body: 'aaaaaaaaaaaaaaaaaaa' },
+    { id: 2, title: 'CSS3', body: 'bbbbbbbbbbbbbbbbbbbb' },
+    { id: 3, title: 'JavaScript', body: 'ccccccccccccccc' }
+  ];
+
 
   
 
   return (
     <>
       <Header title="React" onChangeMode={(msg)=> {alert(msg);}} />
-      <Nav />
-      <Article title="hEllo" body="REeeeeeeeeeeeact" />
-      {/* {content} */}
+      <Nav topics = {topics} onChangeId={(id)=>{alert(id)}} />
     </>
   )
 }
