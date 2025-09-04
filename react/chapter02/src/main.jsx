@@ -18,7 +18,16 @@ function Topics() {
   return (
     <div>
       <h2>Topics</h2>
-      <p>Topics...</p>
+      <ul>
+        <li><NavLink to="/topics/1">HTML</NavLink></li>
+        <li><NavLink to="/topics/2">JS</NavLink></li>
+        <li><NavLink to="/topics/3">React</NavLink></li>
+      </ul>
+      <Routes>
+        <Route path="/1" element={'HTML is ...'} />
+        <Route path="/2" element={'JS is ...'} />
+        <Route path="/3" element={'React is ...'} />
+      </Routes>
     </div>
   );
 }
@@ -45,8 +54,9 @@ function App() {
       {/*Component들을 MPA로 인식*/}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/topics" element={<Topics />} />
+        <Route path="/topics/*" element={<Topics />} />
         <Route path="/contact" element={<Contact />} />
+  
       </Routes>
     </>
   );

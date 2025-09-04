@@ -56,12 +56,10 @@ function App() {
                   setActiveNum(i);
                   setModal(!modal);
                   }}> modal</span>
-                <span onClick={(e)=>{
+                <span onClick={()=>{
                   let newTitle = [];
-                  title.map(function(t_title){
-                    if(!(t_title.key === e.target.key)) {
-                      newTitle.push(t_title);
-                    }
+                  title.map(function(t_title, j) {
+                    if(j !== i) { newTitle.push(t_title); }
                   })
                   setTitle([...newTitle]);
                 }}>DELETE</span>
@@ -78,12 +76,18 @@ function App() {
         console.log(입력값);
       }} />
       <button type="button" onClick={()=>{
+        let newTitle = [...title];
+        newTitle.unshift(입력값);
+        setTitle(newTitle);
+        
+        /*
         let newTitle = [];
         newTitle.push(입력값);
         title.map(function(t_title){
           newTitle.push(t_title);
         })
         setTitle([...newTitle]);
+        */
 
       }}>글추가</button>
 
