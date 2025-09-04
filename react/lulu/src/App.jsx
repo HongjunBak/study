@@ -57,11 +57,14 @@ function App() {
                   setModal(!modal);
                   }}> modal</span>
                 <span onClick={()=>{
-                  let newTitle = [];
-                  title.map(function(t_title, j) {
-                    if(j !== i) { newTitle.push(t_title); }
-                  })
-                  setTitle([...newTitle]);
+                  let newTitle = [...title];
+                  newTitle.splice(i, 1);
+                  setTitle(newTitle);
+                  // let newTitle = [];
+                  // title.map(function(t_title, j) {
+                  //   if(j !== i) { newTitle.push(t_title); }
+                  // })
+                  // setTitle([...newTitle]);
                 }}>DELETE</span>
                 
               </h4>
