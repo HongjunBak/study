@@ -1,0 +1,9 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ul { list-style: none; }
+a { display: block; text-decoration: none; }
+.wrap { width: 350px; margin: 50px auto; }
+h1 a { color: #06f; text-align: center; }
+.menu { margin-top: 15px; }
+article { margin-top: 20px; }
+.text, .reg { margin-top: 5px; }
+.up-btn { margin-left: 10px; }

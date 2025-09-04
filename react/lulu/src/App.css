@@ -1,0 +1,26 @@
+.black-nav {
+  display: flex;
+  background: black;
+  width: 100%;
+  color: white;
+  padding-left: 20px;
+}
+div {
+  box-sizing: border-box;
+  .list {
+    padding-left: 20px;
+    text-align: left;
+    border-bottom: 1px solid grey;
+  }
+}
+.coat {
+  margin-top: 20px;
+  width: 50px; height: 30px;
+}
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eee;
+  text-align: left;
+}
+.list h4 {display: flex; justify-content: space-between;}
