@@ -1,19 +1,6 @@
 /* eslint-disable */
 // 코드 경고 없애기
 
-/*
-응용1. 글에 아무것도 입력안하고 발행버튼 누르는거 막으려면? 
-유저의 의도치않은 행동을 막는 코드도 많이 짜야 안전한 사이트가 됩니다. 
-
-응용2. 글을 하나 추가하면 따봉갯수 개별적용하던 것도 이상해질 수 있습니다.
-어떻게 해결하면 될까요? 
-아마 글이 하나 추가되면 따봉기록할 곳도 하나 더 만들어줘야할듯요.
-
-응용3. 날짜데이터는?
-state에 글만 저장되어있는데 날짜같은 것도 저장해두고 보여주는 식으로 하면 재밌을 것 같군요. 
-자바스크립트로 현재 날짜같은 것도 출력해볼 수 있어서 글 발행시 그런 기능을 더해줄 수도 있겠네요.  
-*/
-
 import { useState } from 'react'
 import './App.css'
 
@@ -21,7 +8,7 @@ const Modal = (props) =>{
   return (
       <div className="modal" style={ {background: props.color} }>
         <h4>{props.title[props.activeNum]}</h4>
-        <p>날짜 {props.date}</p>
+        <p>날짜 {props.wriDate[props.activeNum]}</p>
         <p>상세내용 {props.text}</p>
         <button class="coat" type="button" onClick={()=>{
           const wonbon = [...props.title];
@@ -37,7 +24,8 @@ function App() {
   const [like, setLike] = useState([0,0,0]);
   const [modal, setModal] = useState(false);
   const[activeNum, setActiveNum] = useState(null);
-  let [입력값, 입력값변경] = useState('');
+  const [입력값, 입력값변경] = useState('');
+  const [wriDate, setWriDate] = useState(['2025-05-01', '2025-06-02', '2025-06-03']);
   
 
   return (
@@ -73,6 +61,10 @@ function App() {
                   let newTitle = [...title];
                   newTitle.splice(i, 1);
                   setTitle(newTitle);
+
+                  let newDate = [...wriDate];
+                  newDate.splice(i, 1);
+                  setWriDate(newDate);
                   // let newTitle = [];
                   // title.map(function(t_title, j) {
                   //   if(j !== i) { newTitle.push(t_title); }
@@ -92,9 +84,23 @@ function App() {
         console.log(입력값);
       }} />
       <button type="button" onClick={()=>{
+        if(입력값.length<1){alert('글제목 입력해주세요');}
+        else{
         let newTitle = [...title];
         newTitle.unshift(입력값);
         setTitle(newTitle);
+
+
+
+        let tempDate = new Date();
+        let formatted = tempDate.toISOString().split('T')[0];
+
+
+        let newDate = [...wriDate];
+        newDate.unshift(formatted);
+
+        setWriDate(newDate);
+        }
         
         /*
         let newTitle = [];
@@ -107,7 +113,7 @@ function App() {
 
       }}>글추가</button>
 
-      { modal ? <Modal color='orange' title={title} setTitle={setTitle} activeNum={activeNum} /> : null }
+      { modal ? <Modal color='orange' title={title} setTitle={setTitle} activeNum={activeNum} wriDate={wriDate} /> : null }
       
     </>
   )
