@@ -1,0 +1,12 @@
+package org.dodream.variable;
+
+public class VariableEx03 {
+
+	public static void main(String[] args) {
+		int num = 10;
+		byte bnum = 2;
+		bnum = (byte)num;
+		System.out.println(bnum);
+	}
+
+}

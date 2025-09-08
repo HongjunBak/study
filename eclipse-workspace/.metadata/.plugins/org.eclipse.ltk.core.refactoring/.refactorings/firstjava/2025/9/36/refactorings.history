@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;firstjava&apos;&#x0D;&#x0A;- Original project: &apos;firstjava&apos;&#x0D;&#x0A;- Original element: &apos;org.dodream.standard.Example.java&apos;" description="Delete element" element1="/src&lt;org.dodream.standard{Example.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1756881135674" subPackages="false" version="1.0"/>
+</session>

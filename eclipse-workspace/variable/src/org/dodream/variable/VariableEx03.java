@@ -1,0 +1,25 @@
+package org.dodream.variable;
+
+public class VariableEx03 {
+
+	public static void main(String[] args) {
+		int num = 10;
+		byte bnum = 2;
+		double dnum = 3.3;
+		bnum = (byte)num;
+		System.out.println(bnum);
+		
+		long lgnum = 245l;
+		num = (int)lgnum;
+		System.out.println(lgnum);
+		
+		char ch = 'A';
+		num = ch;
+		ch = (char)num;
+		System.out.println(ch);
+		
+		num = (int)dnum; // 컈-스팅..........
+		
+	}
+
+}
